@@ -111,7 +111,7 @@ btnMagic.addEventListener('click', () => {
 
             let img = document.createElement('img');
             img.className = 'metodo-pago'
-            img.src = "../src/img/1.jpg"
+            img.src = "https://pbs.twimg.com/media/FIR027qWQAsR6A2.jpg"
             modalIncomplet.classList.remove('d-none')
             setTimeout(() => {
                 modalIncomplet.firstElementChild.appendChild(img)/* agrego la imagen */
