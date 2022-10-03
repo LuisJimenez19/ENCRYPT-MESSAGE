@@ -1,5 +1,7 @@
 /* info */
 const infoShowModal = document.getElementById('info'); /* interactividad */
+const infoShowBtn = document.querySelector('#comoFunciona'); 
+
 const modalInfo = document.querySelector('.modal-background'); /* modal a mostrar */
 const closeModal = document.querySelectorAll('.close-modal'); /* interactividad cierra modal */
 
@@ -38,6 +40,10 @@ infoShowModal.addEventListener('click', () => {
     displayNone(modalInfo)
 })
 
+infoShowBtn.addEventListener('click', () => {
+    displayNone(modalInfo)
+})
+
 closeModal.forEach((item, index) => {
 
     item.addEventListener('click', (e) => {
@@ -49,10 +55,7 @@ closeModal.forEach((item, index) => {
 
     })
 })
-/* 
-closeModal.addEventListener('click', () => {
-    displayNone(modalInfo)
-}) */
+
 
 
 /* tomar clave y mostrar error */
@@ -92,7 +95,14 @@ btnMode.forEach(btn => {
         modo = btn.textContent
 
         selectMode(btn)
-        labelMagic.textContent = btn.textContent
+        
+        if (btn.textContent == 'Cifrar') {
+            labelMagic.innerHTML = `Generar mensaje clave <i class="fa-sharp fa-solid fa-arrow-right"></i>`
+            outputMsg.placeholder = 'Mensaje cifrado'
+        } else {
+            labelMagic.innerHTML = `Obtener mensaje original<i class="fa-sharp fa-solid fa-arrow-right"></i>`
+            outputMsg.placeholder = 'Mensaje descifrado'
+        }
     })
 })
 
@@ -104,7 +114,7 @@ btnMagic.addEventListener('click', () => {
     if (modo == '' || msg == '' || key == '') {/* Si no hay rellenado nada */
 
         auxIntentosMsg += 1;
-        console.log(auxIntentosMsg)
+        
         if (auxIntentosMsg === 3) { /* muestra el metodo de pago */
             // le cambio el texto al modal
             modalIncomplet.firstElementChild.children[1].textContent = 'Que parte de completar todos los campos no entiendes? Ahora tendras que pagar por usar la app'
@@ -115,18 +125,20 @@ btnMagic.addEventListener('click', () => {
             modalIncomplet.classList.remove('d-none')
             setTimeout(() => {
                 modalIncomplet.firstElementChild.appendChild(img)/* agrego la imagen */
-                
-            },3000)
-            
+
+            }, 3000)
+
 
         } else { /* las primeras 3 veces, por si no ha completado los campos */
 
-                // si esta la imagen la borra y muestra solo el mensaje, resetea el aux
+            // si esta la imagen la borra y muestra solo el mensaje, resetea el aux
             if (modalIncomplet.firstElementChild.children[1].nextElementSibling != null) { /* si no tiene hermoano devuelve null, como ya se agrego la imagen entonces lo elimino */
+
                 modalIncomplet.firstElementChild.children[1].textContent = 'Completa todos los campos'
                 modalIncomplet.firstElementChild.removeChild(modalIncomplet.firstElementChild.lastElementChild);
                 modalIncomplet.classList.remove('d-none')
                 auxIntentosMsg = 0
+
             } else {/* si no esta la imagen, solo muestra el modal */
                 modalIncomplet.firstElementChild.children[1].textContent = 'Completa todos los campos'
                 modalIncomplet.classList.remove('d-none')
@@ -172,7 +184,7 @@ btnCopy.addEventListener('click', () => {
 btnReset.addEventListener('click', () => {
 
     btnMode.forEach(btn => { btn.classList.remove('btn--mode') })
-    labelMagic.textContent = ''
+    labelMagic.innerHTML = `Ejecutar <i class="fa-sharp fa-solid fa-arrow-right"></i>`
     modo = ''
 
     inputMsg.value = ''
@@ -182,6 +194,10 @@ btnReset.addEventListener('click', () => {
     key = ''
 
     outputMsg.textContent = ''
+    outputMsg.placeholder = 'Mensaje'
+
+    auxIntentos = 0
+    auxIntentosMsg = 0
 })
 
 // --------funciones--------------
@@ -222,7 +238,7 @@ function copyToClipboard(output) {
         modalIncomplet.classList.remove('d-none')
 
         console.warn('No hay mensaje que copiar')
-        console.log(auxIntentos)
+        
 
         if (auxIntentos == 3) {
             modalIncomplet.firstElementChild.children[1].textContent =

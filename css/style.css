@@ -26,7 +26,15 @@
     scroll-behavior: smooth;
 
 }
-
+h4{
+    display: inline;
+    font-size: 1.1em;
+}
+b{
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: underline;
+}
 ::-webkit-scrollbar {
     display: none;
 }
@@ -65,6 +73,7 @@ body {
     min-height: 100vh;
     width: 100%;
     max-width: 1500px;
+    min-width: 300px;
 
     overflow: scroll;
     margin: 0 auto;
@@ -407,8 +416,31 @@ body {
 
 .footer__links {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 30px;
+    
+}
+.footer__help{
+    display: inline-block;
+    transform: translateY(-25px);
+
+    font-size: 1em;
+    font-weight: bold;
+    color: whitesmoke;
+    
+    font-family:  monospace;
+    border-radius: 10px;
+    background: var(--bg-secundary);
+    padding: 8px 10px;
+    box-shadow: 0 0 10px rgb(11, 10, 16);
+    cursor: pointer;
+
+    transition: .3s;
+}
+.footer__help:hover{
+    transform: translateY(-25px) scale(1.1);
+    box-shadow: 0 0 20px rgb(11, 10, 16);
 }
 
 .copyrght {
@@ -442,6 +474,8 @@ body {
 
 
 .modal-help {
+    overflow: auto;
+    height: 100%;
     width: 80%;
     background-color: #1f2340;
     color: white;
@@ -533,6 +567,7 @@ body {
     
 }
 .modal-incomplete-cont{
+    height: auto;
     border: 1px solid white;
     align-self: flex-start;
     margin-top: 100px;
@@ -572,7 +607,9 @@ body {
     animation: aparecer .3s;
 }
 .metodo-pago{
-    
+    display: block;
+    margin: auto;
+    max-width: 500px;
     width: 100%;
     animation: mostrar 6s ease;
     

@@ -83,7 +83,7 @@
                     rows="10" maxlength="300"></textarea>
                 <!-- <input type="text" class="input-msg" placeholder="Ingresa tu mensaje"> -->
                 <div class="key-error-container">
-                    <input placeholder="key" type="number" min="1" max="27" id="input-key" class="input-key"
+                    <input placeholder="clave" type="number" min="1" max="27" id="input-key" class="input-key"
                         maxlength="2">
                     <span class="key-error d-none">1 al 26</span>
                 </div>
@@ -93,14 +93,14 @@
             <!--CHOOSE MODE-->
             <div class="mode-container">
 
-                <button class="btn btn-mode code-btn">Cifrar</button>
-                <button class="btn btn-mode decipher-btn">Descifrar</button>
+                <button title="Generar mensaje clave" class="btn btn-mode code-btn">Cifrar</button>
+                <button title="Obtener mensaje original" class="btn btn-mode decipher-btn">Descifrar</button>
 
             </div>
 
             <!--RUN-->
             <div class="magic-container">
-                <p class="label-magic"></p>
+                <p class="label-magic">Ejecutar <i class="fa-sharp fa-solid fa-arrow-right"></i></p>
                 <button class="magic-btn">
                     <i class="magic fa-solid fa-hand-sparkles"></i>
                 </button>
@@ -108,7 +108,7 @@
 
             <!-- OUTPUT -->
             <div class="output-container msg-key-container input-container">
-                <textarea readonly class="output-msg input-msg" placeholder="Tu mensaje" id="output" cols="30" rows="10"
+                <textarea readonly class="output-msg input-msg" placeholder="Mensaje" id="output" cols="30" rows="10"
                     maxlength="300"></textarea>
 
                 <button class="copy-btn">
@@ -130,21 +130,24 @@
 
                 <img src="./src/img/Logo.gif" class="footer__logo" alt="LOGO">
 
-                <ul class="footer__links">
-                    <li class="footer__link">
-                        <a target="_blank" href="https://www.linkedin.com/in/luis-jim%C3%A9nez-90a859250/"
-                            class="link"><i class="fa-brands fa-linkedin"></i></a>
-                    </li>
-                    <li class="footer__link">
-                        <a target="_blank" href="https://github.com/LuisJimenez19" class="link"><i
-                                class="fa-brands fa-github"></i></a>
-                    </li>
-                    <li class="footer__link">
-                        <a target="_blank" href="https://luisjimenez19.github.io/desafios-frontend-mentor/"
-                            class="link"><i class="fa-solid fa-poo-storm"></i></a>
-                    </li>
-                </ul>
+                <div>
+                    <span id="comoFunciona" class="footer__help">COMO FUNCIONA.</span>
+                    <ul class="footer__links">
+                        <li class="footer__link">
+                            <a target="_blank" href="https://www.linkedin.com/in/luis-jim%C3%A9nez-90a859250/"
+                                class="link"><i class="fa-brands fa-linkedin"></i></a>
+                        </li>
+                        <li class="footer__link">
+                            <a target="_blank" href="https://github.com/LuisJimenez19" class="link"><i
+                                    class="fa-brands fa-github"></i></a>
+                        </li>
+                        <li class="footer__link">
+                            <a target="_blank" href="https://luisjimenez19.github.io/desafios-frontend-mentor/"
+                                class="link"><i class="fa-solid fa-poo-storm"></i></a>
+                        </li>
+                    </ul>
 
+                </div>
             </div>
 
             <p class="copyrght">Copyright © Todos los derechos reservados 2022</p>
@@ -163,19 +166,23 @@
             <h3 class="modal__title">encrypt message</h3>
             <hr>
             <div class="modal__dserciption">
-                <p class="modal__paragraph">encrypt message es una simple herramienta para cifrar tus mensajes o frases
+                <p class="modal__paragraph">encrypt message es una herramienta para cifrar o descifrar tus mensajes, y
+                    obtener una comunicación "secreta" donde las personas con la clave correspondiente pueden tener
+                    acceso a la información
                 </p>
                 <ol class="modal__instructions">
-                    <li class="modal__step">Ingresa tu mensaje en el input</li>
-                    <li class="modal__step">Elige una clave del 1 al 26</li>
-                    <li class="modal__step">Elije si vas a cifrar o descifrar el mensaje</li>
+                    <li class="modal__step">Ingresa tu mensaje en el campo que te lo pide</li>
+                    <li class="modal__step">Elige una clave del 1 al 26 (recuerdala ya que con ella vas a poder
+                        descifrar el mensaje)</li>
+                    <li class="modal__step">Elije si vas a <b>cifrar</b>
+                        <h4>(generar un mensaje clave aleatorio)</h4> o descifrar <h4>(obtener el mensaje original)</h4>
+                    </li>
                     <li class="modal__step">Click en el boton <i class="magia fa-solid fa-hand-sparkles"></i> para
                         ejecutar</li>
                     <li class="modal__step">Listo puedes copiar tu mensaje</li>
                 </ol>
 
-                <p class="modal__contact"><a href="mailto:luisjian948@gmail.com" target="_blank"
-                        rel="noopener noreferrer">Comunicate conmigo <i class="fa-solid fa-paper-plane"></i> </a></p>
+                <p class="modal__contact"><a href="mailto:luisjian948@gmail.com" target="_blank"rel="noopener noreferrer">Comunicate conmigo <i class="fa-solid fa-paper-plane"></i> </a></p>
             </div>
 
         </div>
@@ -185,7 +192,7 @@
     <div class="modal-background modal-incomplet d-none">
         <div class="modal-incomplete-cont modal-help modal--active">
             <i class="fa-solid fa-circle-xmark close-modal"></i>
-            <h4 class="modal__title incomplet__title">Completa todo los campos</h4>
+            <h3 class="modal__title incomplet__title">Completa todo los campos</h3>
         </div>
     </div>
 
