@@ -442,6 +442,15 @@ body {
     transform: translateY(-25px) scale(1.1);
     box-shadow: 0 0 20px rgb(11, 10, 16);
 }
+@media (max-width:450px) {
+    .footer__help{
+        position: absolute;
+        top: 105px;
+        right: 17px;
+        padding: 5px 7px;
+        font-size: .8em;
+    }
+}
 
 .copyrght {
     text-align: center;
